@@ -5,7 +5,11 @@ const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://frontend-hcjt.vercel.app'], // your frontend domain
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 app.use(express.json());
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://deepak7550080013:apK0ilZbRaLdmHJW@cluster0.qdhpq6f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
