@@ -5,9 +5,7 @@ const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://eee-vt46.onrender.com']
-}));
+app.use(cors());
 app.use(express.json());
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://deepak7550080013:apK0ilZbRaLdmHJW@cluster0.qdhpq6f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
