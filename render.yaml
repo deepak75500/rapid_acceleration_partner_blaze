@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: train-search-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node index.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  - type: static_site
+    name: train-search-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://train-search-backend.onrender.com
